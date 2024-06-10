@@ -1,8 +1,8 @@
 package PlayWrightFactory;
 import Base.BaseMain;
 import Factory.Factory;
-import HDFC.Login;
-import HDFC.PR;
+import HDFC.Login.Login;
+import HDFC.PR.PR;
 import com.microsoft.playwright.Page;
 import java.io.IOException;
 import java.util.Properties;
@@ -22,7 +22,7 @@ public class PlayWrightFactory  {
         properties = baseMain.propertiesInitializeInput();
         baseMain.testMethod(page);
         login = new Login(properties, page);
-        pr = new PR(page);
+        pr = new PR(properties,page);
         factory= new Factory(login,pr);
         factory.Name();
 

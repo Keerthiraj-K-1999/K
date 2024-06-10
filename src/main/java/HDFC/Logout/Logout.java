@@ -1,4 +1,4 @@
-package HDFC;
+package HDFC.Logout;
 
 public class Logout {
 }

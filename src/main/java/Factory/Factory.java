@@ -1,6 +1,6 @@
 package Factory;
-import HDFC.Login;
-import HDFC.PR;
+import HDFC.Login.Login;
+import HDFC.PR.PR;
 
 public class Factory {
 
