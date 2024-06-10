@@ -21,8 +21,8 @@ public class PlayWrightFactory  {
         page = baseMain.initializeBrowser();
         properties = baseMain.propertiesInitializeInput();
         baseMain.testMethod(page);
+        pr = new PR(properties, page);
         login = new Login(properties, page);
-        pr = new PR(properties,page);
         factory= new Factory(login,pr);
         factory.Name();
 
