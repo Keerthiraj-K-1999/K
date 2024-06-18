@@ -35,11 +35,11 @@ public class BaseMain {
         properties.load(fileInputStream);
         return properties;
     }
-
-    public void testMethod(Page page){
-        page.navigate(properties.getProperty("url"));
-
-    }
+//
+//    public void testMethod(Page page){
+//        page.navigate(properties.getProperty("url"));
+//
+//    }
 
 
 
