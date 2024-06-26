@@ -1,7 +1,7 @@
-package HDFC.PR.Edit;
+package HDFC.PRINFRA.Edit;
 import HDFC.Login.Login;
 import HDFC.Logout.Logout;
-import HDFC.PR.PRApprovalAdding.PRApprovalAdding;
+import HDFC.PRINFRA.PRApprovalAdding.PRApprovalAdding;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import java.util.Properties;
@@ -12,6 +12,7 @@ public class Edit {
     Page page;
     Properties properties;
     Logout logout;
+    PRApprovalAdding prApprovalAdding;
 
 
     private Edit(){
@@ -25,13 +26,12 @@ public class Edit {
         this.properties = properties;
         this.page = page;
         this.logout = logout;
+        this.prApprovalAdding = new PRApprovalAdding(properties,page,logout);
 
     }
 
     public void Edit() throws InterruptedException {
 
-
-        logout.Logout();
         Thread.sleep(2000);
         login.LoginMethod();
 //        Thread.sleep(2000);
@@ -47,11 +47,12 @@ public class Edit {
         page.locator("//span[text()=' Next ']").first().click();
         Thread.sleep(2000);
         page.locator("#mat-select-17").click();
+        Thread.sleep(3000);
         page.locator("//span[text()=' Air Purifier ']").click();
 
     }
 
-        public void EditPageAddingItem(PRApprovalAdding prApprovalAdding) throws InterruptedException {
+        public void EditPageAddingItem() throws InterruptedException {
 
 
             //Item 3
@@ -85,7 +86,6 @@ public class Edit {
             Addtocart2.click();
             page.locator("//span[text()='OK']").click();
 
-
             Locator Next = page.locator(".mat-focus-indicator.nextbtn").first();
             Next.click();
 
@@ -95,6 +95,7 @@ public class Edit {
 // UPDATING THE PR
 
             prApprovalAdding.EditApprovalAdding();
+            Thread.sleep(2000);
             logout.Logout();
 
 

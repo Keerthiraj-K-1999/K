@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="HDFC Playwright Suite" >
+
+        <listeners>
+            <listener class-name="org.testng.reporters.EmailableReporter2" />
+            <listener class-name="org.testng.reporters.FailedReporter" />
+        </listeners>
+
+    <test name="HDFC Login Test Page Test">
+        <classes>
+            <class name="hdfc.logintest.LoginTestClass" />
+        </classes>
+    </test>
+
+    <test name="HDFC Logout Test Page Test">
+        <classes>
+            <class name="hdfc.Logout.LogoutTest" />
+        </classes>
+    </test>
+
+    <test name="HDFC Create Test Page Test">
+        <classes>
+            <class name="hdfc.CreateTest.CreateTest" />
+        </classes>
+    </test>
+
+    <test name="HDFC Reject Test Page Test">
+        <classes>
+            <class name="hdfc.RejectTest.RejectTest" />
+        </classes>
+    </test>
+
+    <test name="HDFC Edit Test Page Test">
+        <classes>
+            <class name="hdfc.EditTest.EditTest" />
+        </classes>
+    </test>
+
+    <test name="HDFC PRApproval Test Page Test">
+        <classes>
+            <class name="hdfc.PRApprovalTest.PRApprovalTest" />
+        </classes>
+    </test>
+
+    <test name="HDFC BOQCreate Test Page Test">
+        <classes>
+            <class name="hdfc.BOQCreateTest.BOQCreateTest" />
+        </classes>
+    </test>
+
+    <test name="HDFC BOQApproval Test Page Test">
+        <classes>
+            <class name="hdfc.BOQApprovalTest.BOQApprovalTest" />
+        </classes>
+    </test>
+
+    <test name="HDFC POApproval Test Page Test">
+        <classes>
+            <class name="hdfc.POApprovalTest.POApprovalTest" />
+        </classes>
+    </test>
+
+    <test name="HDFC InvoiceCreate Test Page Test">
+        <classes>
+            <class name="hdfc.VendorInvoiceCreateTest.InvoiceCreateTest" />
+        </classes>
+    </test>
+
+    <test name="HDFC CheckListReview Test Page Test">
+        <classes>
+            <class name="hdfc.CheckListReviewTest.CheckListReviewTest" />
+        </classes>
+    </test>
+
+    <test name="HDFC VendorResubmit Test Page Test">
+        <classes>
+            <class name="hdfc.VendorResubmitTest.VendorResubmitTest" />
+        </classes>
+    </test>
+
+
+</suite>

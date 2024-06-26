@@ -1,66 +1,66 @@
-package HDFC.PR.PRApproval;
+package HDFC.PRINFRA.BOQApproval;
 
 import HDFC.Login.Login;
 import HDFC.Logout.Logout;
 import com.microsoft.playwright.Page;
+
 import java.util.Properties;
 
-public class PRApproval {
-
+public class BOQApproval {
     Page page;
     Login login;
-    Properties properties;
     Logout logout;
+    Properties properties;
 
+    public BOQApproval(){
 
-    private PRApproval() {
     }
-
-
     //TODO Constructor
-    public PRApproval(Page page, Login login, Properties properties, Logout logout) {
-        this.page = page;
+    public BOQApproval(Login login, Logout logout, Properties properties, Page page) {
         this.login = login;
-        this.properties = properties;
         this.logout = logout;
-
+        this.properties = properties;
+        this.page = page;
     }
 
-    public void PRApproval() throws InterruptedException {
+
+    public void BOQApproval() throws InterruptedException {
 
         Thread.sleep(2000);
-//PRApproverfirstlevel
-        String EmailID1 = properties.getProperty("PRApproverfirstlevel");
+//BOQApproverfirstlevel
+        String EmailID1 = properties.getProperty("BOQLevelFirst");
         login.LoginMethod(EmailID1);
         Thread.sleep(2000);
         page.locator("//button[@mattooltip='view Details']").first().click();
         Thread.sleep(2000);
-        page.locator("//span[text()=' Approve ']").click();
+        page.locator("//span[text()=' Approve ']").last().click();
         page.locator("#mat-input-7").fill("ok");
         page.locator("//*[contains(text(), ' Submit ')]").click();
 
         Thread.sleep(2000);
         logout.Logout();
+
     }
 
-        public void PRApproval1() throws InterruptedException {
+    public void BOQApproval2() throws InterruptedException {
 
-//PRApproverSecondlevel
         Thread.sleep(2000);
-        login.LoginMethod1();
+//BOQApproverfirstlevel
+        login.LoginMethod2();
         Thread.sleep(2000);
         page.locator("//button[@mattooltip='view Details']").first().click();
         Thread.sleep(2000);
-        page.locator("//span[text()=' Approve ']").click();
+        page.locator("//span[text()=' Approve ']").last().click();
         page.locator("#mat-input-7").fill("ok");
         page.locator("//*[contains(text(), ' Submit ')]").click();
-
 
         Thread.sleep(2000);
         logout.Logout();
 
 
     }
+
+
 
 
 }

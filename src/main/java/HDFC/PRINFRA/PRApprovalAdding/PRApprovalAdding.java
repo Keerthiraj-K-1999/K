@@ -1,4 +1,4 @@
-package HDFC.PR.PRApprovalAdding;
+package HDFC.PRINFRA.PRApprovalAdding;
 import HDFC.Logout.Logout;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
@@ -35,6 +35,7 @@ public class PRApprovalAdding {
         Thread.sleep(2000);
         page.locator("//span[text()=' Apply Approvers ']").click();
         page.locator("//mat-icon[text()='done_all']").last().click();
+        Thread.sleep(2000);
         page.locator("//span[text()=' Yes ']").click();
 
     }
@@ -55,7 +56,6 @@ public class PRApprovalAdding {
         page.locator("//mat-icon[text()='done_all']").last().click();
         Thread.sleep(2000);
         page.locator("//span[text()=' Yes ']").click();
-
 
     }
 

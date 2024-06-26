@@ -1,7 +1,7 @@
-package HDFC.PR.BOQCreate;
+package HDFC.PRINFRA.BOQCreate;
 import HDFC.Login.Login;
 import HDFC.Logout.Logout;
-import HDFC.PR.PRApprovalAdding.PRApprovalAdding;
+import HDFC.PRINFRA.PRApprovalAdding.PRApprovalAdding;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import java.util.Properties;
@@ -12,6 +12,7 @@ public class BOQCreate {
     Login login;
     Logout logout;
     Properties properties;
+    PRApprovalAdding prApprovalAdding;
 
 
     private BOQCreate(){
@@ -25,10 +26,10 @@ public class BOQCreate {
         this.login = login;
         this.logout = logout;
         this.properties = properties;
-
+        this.prApprovalAdding = new PRApprovalAdding(properties,page,logout);
     }
 
-    public void BOQCreate(PRApprovalAdding prApprovalAdding) throws InterruptedException {
+    public void BOQCreate() throws InterruptedException {
 
         Thread.sleep(2000);
         login.LoginMethod();

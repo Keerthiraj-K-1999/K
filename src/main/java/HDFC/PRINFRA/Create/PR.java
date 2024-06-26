@@ -1,6 +1,7 @@
-package HDFC.PR.Create;
+package HDFC.PRINFRA.Create;
 import HDFC.Login.Login;
 import HDFC.Logout.Logout;
+import HDFC.PRINFRA.PRApprovalAdding.PRApprovalAdding;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import java.util.Properties;
@@ -11,6 +12,7 @@ public class PR {
     Properties properties;
     Login login;
     Logout logout;
+    PRApprovalAdding prApprovalAdding;
 
     private PR() {
     }
@@ -21,6 +23,7 @@ public class PR {
         this.properties = properties;
         this.login = login;
         this.logout = logout;
+        this.prApprovalAdding = new PRApprovalAdding(properties,page,logout);
     }
 
    public void PRCreate() throws InterruptedException{
@@ -82,6 +85,9 @@ public class PR {
         page.locator("//span[text()=' Add Cost Code ']").click();
         Locator Next1 = page.locator("//body/app-root[1]/div[1]/app-procurement[1]/app-layout[1]/mat-drawer-container[1]/mat-drawer-content[1]/div[1]/app-purchase-requisition-non-fpn-create[1]/section[1]/div[2]/div[1]/mat-horizontal-stepper[1]/div[2]/div[3]/footer[1]/button[3]/span[1]");
         Next1.click();
+
+        prApprovalAdding.PRApprovalAdding();
+        logout.Logout();
 
 
 

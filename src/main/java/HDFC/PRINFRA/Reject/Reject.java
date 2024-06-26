@@ -1,4 +1,4 @@
-package HDFC.PR.Reject;
+package HDFC.PRINFRA.Reject;
 import HDFC.Login.Login;
 import HDFC.Logout.Logout;
 import com.microsoft.playwright.Page;
@@ -50,6 +50,9 @@ public class Reject {
         page.locator("//*[contains(text(), ' Reject ')]").click();
         page.locator("#mat-input-7").fill("ok");
         page.locator("//*[contains(text(), ' Submit ')]").click();
+        Thread.sleep(2000);
+        logout.Logout();
+
 
 
 

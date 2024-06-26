@@ -113,4 +113,72 @@ public class Login {
             page.locator("//span[text()='Purchase Requisitions Infra']").click();
         }
     }
+    public void LoginMethod3() throws InterruptedException {
+        String loginUrl = properties.getProperty("url");
+        page.navigate(loginUrl);
+        Locator loginNote = page.locator("//*[contains(text(), 'Unauthorized use of the HDFC Bank applications is prohibited')]");
+        Locator mailId = page.locator("//input[@id='mat-input-0']");
+        mailId.fill(properties.getProperty("FinalApproval"));
+        Locator password = page.locator("//input[@id='mat-input-1']");
+        password.fill(properties.getProperty("Password"));
+        Locator loginButton = page.locator("//button[contains(text(), ' Login ')]");
+        loginButton.click();
+        Thread.sleep(2000);
+
+        if (loginNote.isVisible()) {
+            System.out.println("ui 2 login");
+            Locator Proceed = page.locator("//*[contains(text(), ' Proceed ')]");
+            Proceed.click();
+            page.locator("//span[text()='Purchase Orders INFRA']").click();
+        } else {
+            System.out.println("ui login");
+            page.locator("//span[text()='Purchase Orders INFRA']").click();
+        }
+    }
+
+    public void LoginMethodVendor() throws InterruptedException {
+        String loginUrl = properties.getProperty("url");
+        page.navigate(loginUrl);
+        Locator loginNote = page.locator("//*[contains(text(), 'Unauthorized use of the HDFC Bank applications is prohibited')]");
+        Locator mailId = page.locator("//input[@id='mat-input-0']");
+        mailId.fill(properties.getProperty("VendorEmailID"));
+        Locator password = page.locator("//input[@id='mat-input-1']");
+        password.fill(properties.getProperty("Password"));
+        Locator loginButton = page.locator("//button[contains(text(), ' Login ')]");
+        loginButton.click();
+        Thread.sleep(2000);
+
+        if (loginNote.isVisible()) {
+            System.out.println("ui 2 login");
+            Locator Proceed = page.locator("//*[contains(text(), ' Proceed ')]");
+            Proceed.click();
+            page.locator("//span[text()='Purchase Orders']").click();
+        } else {
+            System.out.println("ui login");
+            page.locator("//span[text()='Purchase Orders']").click();
+        }
+    }
+
+    public void LoginMethodInvoiceChecker() throws InterruptedException {
+        String loginUrl = properties.getProperty("url");
+        page.navigate(loginUrl);
+        Locator loginNote = page.locator("//*[contains(text(), 'Unauthorized use of the HDFC Bank applications is prohibited')]");
+        Locator mailId = page.locator("//input[@id='mat-input-0']");
+        mailId.fill(properties.getProperty("InvoiceChecker"));
+        Locator password = page.locator("//input[@id='mat-input-1']");
+        password.fill(properties.getProperty("Password"));
+        Locator loginButton = page.locator("//button[contains(text(), ' Login ')]");
+        loginButton.click();
+        Thread.sleep(2000);
+
+        if (loginNote.isVisible()) {
+            System.out.println("ui 2 login");
+            Locator Proceed = page.locator("//*[contains(text(), ' Proceed ')]");
+            Proceed.click();
+            page.locator("//span[text()='Digital Invoices']").click();
+        } else {
+            System.out.println("ui login");
+            page.locator("//span[text()='Digital Invoices']").click();
+        }
+    }
 }
