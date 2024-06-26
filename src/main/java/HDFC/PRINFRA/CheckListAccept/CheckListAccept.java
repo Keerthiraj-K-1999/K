@@ -40,8 +40,7 @@ public class CheckListAccept {
                 "/div/div/div/table/tbody/tr[2]/td[6]/div/button[1]/span").click();
         Thread.sleep(1000);
         page.locator("//span[text()=' Accept ']");
-
-
+   //     page.locator("NA");
 
 
 
