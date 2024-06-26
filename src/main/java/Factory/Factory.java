@@ -63,21 +63,21 @@ public class Factory {
 
     public void Name() throws InterruptedException {
 
-        pr.PRCreate();
-        pr.itemAdd();
-        pr.ADDITIONALDETAILS();
-        reject.Reject();
-        edit.Edit();
-        edit.EditPageAddingItem();
-        approval.PRApproval();
-        approval.PRApproval1();
-        boqCreate.BOQCreate();
-        boqApproval.BOQApproval();
-        boqApproval.BOQApproval2();
-        poApproval.POApproval();
-        vendor.Vendor();
-        checkListReview.CheckListReview();
-        vendorResubmit.VendorResubmit();
+//        pr.PRCreate();
+//        pr.itemAdd();
+//        pr.ADDITIONALDETAILS();
+//        reject.Reject();
+//        edit.Edit();
+//        edit.EditPageAddingItem();
+//        approval.PRApproval();
+//        approval.PRApproval1();
+//        boqCreate.BOQCreate();
+//        boqApproval.BOQApproval();
+//        boqApproval.BOQApproval2();
+//        poApproval.POApproval();
+//        vendor.Vendor();
+//        checkListReview.CheckListReview();
+//        vendorResubmit.VendorResubmit();
         checkListAccept.CheckListAccept();
 
     }

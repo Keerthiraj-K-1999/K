@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [HDFC Playwright Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="org.testng.reporters.EmailableReporter2"/>
+    <listener class-name="org.testng.reporters.FailedReporter"/>
+  </listeners>
+  <test thread-count="5" name="HDFC Login Test Page Test(failed)">
+    <classes>
+      <class name="hdfc.logintest.LoginTestClass">
+        <methods>
+          <include name="setup"/>
+          <include name="teardown"/>
+          <include name="LoginTestClassMethod"/>
+        </methods>
+      </class> <!-- hdfc.logintest.LoginTestClass -->
+    </classes>
+  </test> <!-- HDFC Login Test Page Test(failed) -->
+</suite> <!-- Failed suite [HDFC Playwright Suite] -->

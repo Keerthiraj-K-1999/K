@@ -38,6 +38,8 @@ public class CheckListAccept {
         Thread.sleep(1000);
         page.locator("//*[@id=\"cdk-accordion-child-12\"]" +
                 "/div/div/div/table/tbody/tr[2]/td[6]/div/button[1]/span").click();
+        Thread.sleep(1000);
+        page.locator("//span[text()=' Accept ']");
 
 
 
