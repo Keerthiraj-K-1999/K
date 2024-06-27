@@ -2,6 +2,7 @@ package HDFC.PRINFRA.BOQApproval;
 
 import HDFC.Login.Login;
 import HDFC.Logout.Logout;
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
 import java.util.Properties;
@@ -26,41 +27,42 @@ public class BOQApproval {
 
     public void BOQApproval() throws InterruptedException {
 
-        Thread.sleep(2000);
-//BOQApproverfirstlevel
-        String EmailID1 = properties.getProperty("BOQLevelFirst");
-        login.LoginMethod(EmailID1);
-        Thread.sleep(2000);
-        page.locator("//button[@mattooltip='view Details']").first().click();
-        Thread.sleep(2000);
-        page.locator("//span[text()=' Approve ']").last().click();
-        page.locator("#mat-input-7").fill("ok");
-        page.locator("//*[contains(text(), ' Submit ')]").click();
+        String[] Approver = {(properties.getProperty("BOQLevelFirst")), (properties.getProperty("BOQLevelSecond"))};
+        for (int i = 0; i < Approver.length; i++) {
+            Thread.sleep(2000);
+            login.LoginMethod(Approver[i]);
+            Thread.sleep(1000);
+            Locator loginNote = page.locator("//*[contains(text(), 'Unauthorized use of the HDFC Bank applications is prohibited')]");
+            if (loginNote.isVisible()) {
+                System.out.println("ui 2 login");
+                Locator Proceed = page.locator("//*[contains(text(), ' Proceed ')]");
+                Proceed.click();
+                page.locator("//span[text()='Purchase Requisitions Infra']").click();
+            }
+            else {
+                Locator InfraButton = page.locator("//span[text()='INFRA']");
+                if (InfraButton.isVisible()) {
+                    System.out.println("ui login");
+                    page.locator("//*[contains(text(), 'close')]").click();
+                    page.locator("//span[text()='Purchase Requisitions Infra']").click();
+                }
+                else
+                {
+                    page.locator("//span[text()='Purchase Requisitions Infra']").click();
+                }
+            }
 
-        Thread.sleep(2000);
-        logout.Logout();
+            Thread.sleep(2000);
+            page.locator("//button[@mattooltip='view Details']").first().click();
+            Thread.sleep(2000);
+            page.locator("//span[text()=' Approve ']").last().click();
+            page.locator("#mat-input-7").fill("ok");
+            page.locator("//*[contains(text(), ' Submit ')]").click();
 
+            Thread.sleep(2000);
+            logout.Logout();
+
+        }
     }
-
-    public void BOQApproval2() throws InterruptedException {
-
-        Thread.sleep(2000);
-//BOQApproverfirstlevel
-        login.LoginMethod2();
-        Thread.sleep(2000);
-        page.locator("//button[@mattooltip='view Details']").first().click();
-        Thread.sleep(2000);
-        page.locator("//span[text()=' Approve ']").last().click();
-        page.locator("#mat-input-7").fill("ok");
-        page.locator("//*[contains(text(), ' Submit ')]").click();
-
-        Thread.sleep(2000);
-        logout.Logout();
-
-
-    }
-
-
-
 
 }

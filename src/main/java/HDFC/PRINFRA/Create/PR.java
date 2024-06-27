@@ -26,8 +26,31 @@ public class PR {
         this.prApprovalAdding = new PRApprovalAdding(properties,page,logout);
     }
 
-   public void PRCreate() throws InterruptedException{
-        login.LoginMethod();
+   public void PRCreate() throws InterruptedException {
+
+       login.LoginMethod(properties.getProperty("EmailID"));
+
+       Thread.sleep(1000);
+       Locator loginNote = page.locator("//*[contains(text(), 'Unauthorized use of the HDFC Bank applications is prohibited')]");
+       if (loginNote.isVisible()) {
+           System.out.println("ui 2 login");
+           Locator Proceed = page.locator("//*[contains(text(), ' Proceed ')]");
+           Proceed.click();
+           page.locator("//span[text()='Purchase Requisitions Infra']").click();
+       }
+//       else {
+//           Locator InfraButton = page.locator("//span[text()='INFRA']");
+//           if (InfraButton.isVisible()) {
+//               System.out.println("ui login");
+//               page.locator("//*[contains(text(), 'close')]").click();
+//               page.locator("//span[text()='Purchase Requisitions Infra']").click();
+//           }
+       else {
+           page.locator("//span[text()='Purchase Requisitions Infra']").click();
+       }
+
+
+
        page.locator("//*[contains(text(), ' Create ')]").click();
        page.locator("//*[contains(text(), ' Non-FPN ')]").first().click();
        Locator Location = page.locator("#mat-input-4").first();

@@ -32,7 +32,29 @@ public class BOQCreate {
     public void BOQCreate() throws InterruptedException {
 
         Thread.sleep(2000);
-        login.LoginMethod();
+        login.LoginMethod(properties.getProperty("EmailID"));
+
+        Thread.sleep(1000);
+        Locator loginNote = page.locator("//*[contains(text(), 'Unauthorized use of the HDFC Bank applications is prohibited')]");
+        if (loginNote.isVisible()) {
+            System.out.println("ui 2 login");
+            Locator Proceed = page.locator("//*[contains(text(), ' Proceed ')]");
+            Proceed.click();
+            page.locator("//span[text()='Purchase Requisitions Infra']").click();
+        }
+        else {
+            Locator InfraButton = page.locator("//span[text()='INFRA']");
+            if (InfraButton.isVisible()) {
+                System.out.println("ui login");
+                page.locator("//*[contains(text(), 'close')]").click();
+                page.locator("//span[text()='Purchase Requisitions Infra']").click();
+            }
+            else
+            {
+                page.locator("//span[text()='Purchase Requisitions Infra']").click();
+            }
+        }
+
         page.locator("//button[@mattooltip='view Details']").first().click();
         page.locator("//span[text()=' Create BOQ ']").click();
         Thread.sleep(2000);

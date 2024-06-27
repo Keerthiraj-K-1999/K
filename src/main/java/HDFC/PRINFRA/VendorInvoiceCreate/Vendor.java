@@ -30,10 +30,33 @@ public class Vendor {
     public void Vendor() throws InterruptedException {
 
         Thread.sleep(2000);
-        login.LoginMethodVendor();
+        login.LoginMethod(properties.getProperty("VendorEmailID"));
+
+        Thread.sleep(1000);
+        Locator loginNote = page.locator("//*[contains(text(), 'Unauthorized use of the HDFC Bank applications is prohibited')]");
+        if (loginNote.isVisible()) {
+            System.out.println("ui 2 login");
+            Locator Proceed = page.locator("//*[contains(text(), ' Proceed ')]");
+            Proceed.click();
+            page.locator("//span[text()='Purchase Orders']").click();
+        }
+        else {
+            Locator InfraButton = page.locator("//span[text()='INFRA']");
+            if (InfraButton.isVisible()) {
+                System.out.println("ui login");
+                page.locator("//*[contains(text(), 'close')]").click();
+                page.locator("//span[text()='Purchase Orders']").click();
+            }
+            else
+            {
+                page.locator("//span[text()='Purchase Orders']").click();
+            }
+        }
+
+        Thread.sleep(20000);
         Thread.sleep(2000);
         page.locator("//span[text()='Digital Invoices']").click();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         page.locator("//span[text()='Purchase Orders']").click();
         Thread.sleep(1000);
         page.locator("//td[text()='BLUE STAR LIMITED']").first().click();

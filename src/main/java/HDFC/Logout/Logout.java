@@ -28,15 +28,6 @@ public class Logout {
         page.locator("//mat-icon[text()='person']").click();
         page.locator("//span[text()='Log Out']").click();
 
-
-
     }
 
-    public void Logout1() throws InterruptedException {
-
-        login.LoginMethod();
-        Thread.sleep(2000);
-        page.locator("//mat-icon[text()='person']").click();
-        page.locator("//span[text()='Log Out']").click();
-    }
 }

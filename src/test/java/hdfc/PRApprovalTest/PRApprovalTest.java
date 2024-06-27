@@ -11,6 +11,6 @@ public class PRApprovalTest extends BaseTestClass {
     @Test
     public void PRApprovalTestMethod() throws InterruptedException {
         prApproval.PRApproval();
-        prApproval.PRApproval1();
+
     }
 }

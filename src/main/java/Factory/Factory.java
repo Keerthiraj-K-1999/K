@@ -4,6 +4,7 @@ import HDFC.Logout.Logout;
 import HDFC.PRINFRA.BOQApproval.BOQApproval;
 import HDFC.PRINFRA.CheckListAccept.CheckListAccept;
 import HDFC.PRINFRA.CheckListReview.CheckListReview;
+import HDFC.PRINFRA.InvoiceApproval.InvoiceApproval;
 import HDFC.PRINFRA.POApproval.POApproval;
 import HDFC.PRINFRA.PRApproval.PRApproval;
 import HDFC.PRINFRA.BOQCreate.BOQCreate;
@@ -31,6 +32,7 @@ public class Factory {
     CheckListReview checkListReview;
     VendorResubmit vendorResubmit;
     CheckListAccept checkListAccept;
+    InvoiceApproval invoiceApproval;
 
 
     private Factory(){
@@ -40,7 +42,8 @@ public class Factory {
                    Logout logout, Reject reject, Edit edit, PRApproval approval ,
                    BOQCreate boqCreate, PRApprovalAdding boqCreateAddingApprovalCycle ,
                    BOQApproval boqApproval,POApproval poApproval,Vendor vendor,
-                   CheckListReview checkListReview,VendorResubmit vendorResubmit,CheckListAccept checkListAccept){
+                   CheckListReview checkListReview,VendorResubmit vendorResubmit,
+                   CheckListAccept checkListAccept,InvoiceApproval invoiceApproval){
 
 
         this.login = login;
@@ -58,27 +61,27 @@ public class Factory {
         this.checkListReview = checkListReview;
         this.vendorResubmit = vendorResubmit;
         this.checkListAccept = checkListAccept;
+        this.invoiceApproval = invoiceApproval;
 
     }
 
     public void Name() throws InterruptedException {
 
-//        pr.PRCreate();
-//        pr.itemAdd();
-//        pr.ADDITIONALDETAILS();
-//        reject.Reject();
-//        edit.Edit();
-//        edit.EditPageAddingItem();
-//        approval.PRApproval();
-//        approval.PRApproval1();
-//        boqCreate.BOQCreate();
-//        boqApproval.BOQApproval();
-//        boqApproval.BOQApproval2();
-//        poApproval.POApproval();
-//        vendor.Vendor();
-//        checkListReview.CheckListReview();
-//        vendorResubmit.VendorResubmit();
+        pr.PRCreate();
+        pr.itemAdd();
+        pr.ADDITIONALDETAILS();
+        reject.Reject();
+        edit.Edit();
+        edit.EditPageAddingItem();
+        approval.PRApproval();
+        boqCreate.BOQCreate();
+        boqApproval.BOQApproval();
+        poApproval.POApproval();
+        vendor.Vendor();
+        checkListReview.CheckListReview();
+        vendorResubmit.VendorResubmit();
         checkListAccept.CheckListAccept();
+        invoiceApproval.InvoiceApprovalMethod();
 
     }
 

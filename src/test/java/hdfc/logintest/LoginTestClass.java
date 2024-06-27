@@ -9,6 +9,7 @@ public class LoginTestClass  extends BaseTestClass {
 
     @Test
     public void LoginTestClassMethod() throws InterruptedException {
-        login.LoginMethod();
+
+        login.LoginMethod(properties.getProperty("EmailID"));
     }
 }

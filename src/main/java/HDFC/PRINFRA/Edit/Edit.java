@@ -33,16 +33,29 @@ public class Edit {
     public void Edit() throws InterruptedException {
 
         Thread.sleep(2000);
-        login.LoginMethod();
-//        Thread.sleep(2000);
-//        page.locator("#mat-input-2").click();
-//        page.locator("//*[contains(text(), ' Search By Reference ID ')]").click();
-//        Thread.sleep(2000);
-//        Locator Reference = page.locator("//input[@placeholder='Search By Reference ID']");
-//        Reference.fill(properties.getProperty("EditReferenceID"));
-//        Thread.sleep(2000);
-//        page.keyboard().press("Enter");
-//        Thread.sleep(2000);
+        login.LoginMethod(properties.getProperty("EmailID"));
+
+        Thread.sleep(1000);
+        Locator loginNote = page.locator("//*[contains(text(), 'Unauthorized use of the HDFC Bank applications is prohibited')]");
+        if (loginNote.isVisible()) {
+            System.out.println("ui 2 login");
+            Locator Proceed = page.locator("//*[contains(text(), ' Proceed ')]");
+            Proceed.click();
+            page.locator("//span[text()='Purchase Requisitions Infra']").click();
+        }
+        else {
+            Locator InfraButton = page.locator("//span[text()='INFRA']");
+            if (InfraButton.isVisible()) {
+                System.out.println("ui login");
+                page.locator("//*[contains(text(), 'close')]").click();
+                page.locator("//span[text()='Purchase Requisitions Infra']").click();
+            }
+            else
+            {
+                page.locator("//span[text()='Purchase Requisitions Infra']").click();
+            }
+        }
+
         page.locator("//mat-icon[text()='edit']").first().click();
         page.locator("//span[text()=' Next ']").first().click();
         Thread.sleep(2000);

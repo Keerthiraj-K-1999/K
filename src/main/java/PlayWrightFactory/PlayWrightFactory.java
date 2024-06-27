@@ -6,6 +6,7 @@ import HDFC.Logout.Logout;
 import HDFC.PRINFRA.BOQApproval.BOQApproval;
 import HDFC.PRINFRA.CheckListAccept.CheckListAccept;
 import HDFC.PRINFRA.CheckListReview.CheckListReview;
+import HDFC.PRINFRA.InvoiceApproval.InvoiceApproval;
 import HDFC.PRINFRA.POApproval.POApproval;
 import HDFC.PRINFRA.PRApproval.PRApproval;
 import HDFC.PRINFRA.BOQCreate.BOQCreate;
@@ -40,6 +41,7 @@ public class PlayWrightFactory  {
     static CheckListReview checkListReview;
     static VendorResubmit vendorResubmit;
     static CheckListAccept checkListAccept;
+    static InvoiceApproval invoiceApproval;
 
 
 
@@ -60,12 +62,13 @@ public class PlayWrightFactory  {
         boqApproval = new BOQApproval(login,logout,properties,page);
         poApproval = new POApproval(page,login,logout,properties);
         vendor = new Vendor(properties,page,login);
-        checkListReview = new CheckListReview(page,login,logout);
+        checkListReview = new CheckListReview(page,login,logout,properties);
         vendorResubmit = new VendorResubmit(page,login,logout,properties);
         checkListAccept = new CheckListAccept(page,login,logout,properties);
+        invoiceApproval = new InvoiceApproval(page,login,logout,properties);
         factory= new Factory(login,pr,prApprovalAdding,logout,reject,edit,prApproval,boqCreate,
                              boqCreateAddingApprovalCycle,boqApproval,poApproval,vendor,
-                             checkListReview,vendorResubmit,checkListAccept);
+                             checkListReview,vendorResubmit,checkListAccept,invoiceApproval);
         factory.Name();
 
 

@@ -12,6 +12,6 @@ public class BOQApprovalTest extends BaseTestClass {
     public void BOQApprovalTestMethod() throws InterruptedException {
 
         boqApproval.BOQApproval();
-        boqApproval.BOQApproval2();
+
     }
 }

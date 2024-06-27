@@ -13,12 +13,6 @@
         </classes>
     </test>
 
-    <test name="HDFC Logout Test Page Test">
-        <classes>
-            <class name="hdfc.Logout.LogoutTest" />
-        </classes>
-    </test>
-
     <test name="HDFC Create Test Page Test">
         <classes>
             <class name="hdfc.CreateTest.CreateTest" />
@@ -76,6 +70,12 @@
     <test name="HDFC VendorResubmit Test Page Test">
         <classes>
             <class name="hdfc.VendorResubmitTest.VendorResubmitTest" />
+        </classes>
+    </test>
+
+    <test name="HDFC CheckListAccept Test Page Test">
+        <classes>
+            <class name="hdfc.CheckListAcceptTest.CheckListAcceptTest" />
         </classes>
     </test>
 

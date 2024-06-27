@@ -4,9 +4,11 @@ import HDFC.Login.Login;
 import HDFC.Logout.Logout;
 import HDFC.PRINFRA.BOQApproval.BOQApproval;
 import HDFC.PRINFRA.BOQCreate.BOQCreate;
+import HDFC.PRINFRA.CheckListAccept.CheckListAccept;
 import HDFC.PRINFRA.CheckListReview.CheckListReview;
 import HDFC.PRINFRA.Create.PR;
 import HDFC.PRINFRA.Edit.Edit;
+import HDFC.PRINFRA.InvoiceApproval.InvoiceApproval;
 import HDFC.PRINFRA.POApproval.POApproval;
 import HDFC.PRINFRA.PRApproval.PRApproval;
 import HDFC.PRINFRA.Reject.Reject;
@@ -16,10 +18,11 @@ import PlayWrightFactory.PlayWrightFactory;
 import com.microsoft.playwright.Page;
 import hdfc.BOQApprovalTest.BOQApprovalTest;
 import hdfc.BOQCreateTest.BOQCreateTest;
+import hdfc.CheckListAcceptTest.CheckListAcceptTest;
 import hdfc.CheckListReviewTest.CheckListReviewTest;
 import hdfc.CreateTest.CreateTest;
 import hdfc.EditTest.EditTest;
-import hdfc.Logout.LogoutTest;
+import hdfc.InvoiceApprovalMethodTest.InvoiceApprovalMethodTest;
 import hdfc.POApprovalTest.POApprovalTest;
 import hdfc.PRApprovalTest.PRApprovalTest;
 import hdfc.RejectTest.RejectTest;
@@ -54,13 +57,16 @@ public class BaseTestClass {
     public BOQApproval boqApproval;
     public POApprovalTest poApprovalTest;
     public POApproval poApproval;
-    public LogoutTest logoutTest;
     public InvoiceCreateTest invoiceCreateTest;
     public Vendor vendor;
     public CheckListReviewTest checkListReviewTest;
     public CheckListReview checkListReview;
     public VendorResubmitTest vendorResubmitTest;
     public VendorResubmit vendorResubmit;
+    public CheckListAccept checkListAccept;
+    public CheckListAcceptTest checkListAcceptTest;
+    public InvoiceApprovalMethodTest invoiceApprovalMethodTest;
+    public InvoiceApproval invoiceApproval;
 
 
 
@@ -88,13 +94,16 @@ public class BaseTestClass {
         boqApprovalTest = new BOQApprovalTest();
         poApproval = new POApproval(page,login,logout,properties);
         poApprovalTest = new POApprovalTest();
-        logoutTest = new LogoutTest();
         vendor = new Vendor(properties,page,login);
         invoiceCreateTest = new InvoiceCreateTest();
-        checkListReview = new CheckListReview(page,login,logout);
+        checkListReview = new CheckListReview(page,login,logout,properties);
         checkListReviewTest = new CheckListReviewTest();
         vendorResubmit = new VendorResubmit(page,login,logout,properties);
         vendorResubmitTest = new VendorResubmitTest();
+        checkListAccept = new CheckListAccept(page,login,logout,properties);
+        checkListAcceptTest = new CheckListAcceptTest();
+        invoiceApproval = new InvoiceApproval(page,login,logout,properties);
+        invoiceApprovalMethodTest = new InvoiceApprovalMethodTest();
 
     }
 
